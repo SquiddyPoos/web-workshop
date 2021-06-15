@@ -46,7 +46,7 @@
       <v-app-bar-nav-icon v-if="user != null"
                           @click="drawerShown = !drawerShown"/>
       <v-toolbar-title>
-        YourName's Vue App
+        Wenkai's Vue App
       </v-toolbar-title>
     </v-app-bar>
 
@@ -65,7 +65,7 @@ export default Vue.extend({
   data: () => ({
     drawerShown: false,
     user: {
-      name: "YourName",
+      name: "Wenkai",
     }
   }),
   computed: {
