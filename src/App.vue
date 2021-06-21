@@ -9,7 +9,7 @@
         <v-list-item-content>
           <v-icon size="100">mdi-account</v-icon>
           <v-list-item-title>
-            Welcome, {{ user.name }}!
+            Welcome, person!
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -46,7 +46,7 @@
       <v-app-bar-nav-icon v-if="user != null"
                           @click="drawerShown = !drawerShown"/>
       <v-toolbar-title>
-        Wenkai's Vue App
+        Currency API
       </v-toolbar-title>
     </v-app-bar>
 
