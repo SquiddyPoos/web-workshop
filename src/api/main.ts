@@ -1,15 +1,13 @@
-import {getRepos, getUser} from "@/api/api";
+import {getConversion, getCurrencies, getTranslations} from "@/api/api";
+import {Conversion} from "@/types/conversion";
 
 async function main(): Promise<string> {
-  const name = "junron";
-  const user = await getUser(name);
-  const repos = await getRepos(name);
-  const starredRepos = repos.filter(repo => {
-    return repo.stargazers_count > 0;
-  });
-  const repoNames = repos.map(repo => repo.name)
-    .join(", ");
-  return repoNames;
+  const trans:Map<string, string> = await getTranslations("latest");
+  const curr:string[] = await getCurrencies("latest");
+  const currFrom = "sgd";
+  const currTo = "usd";
+  const conv:Conversion = await getConversion("latest", currFrom, currTo);
+  return `On ${conv.date}, the conversion rate of ${currFrom.toUpperCase()} to ${currTo.toUpperCase()} was 1 ${currFrom.toUpperCase()} to ${conv.rate} ${currTo.toUpperCase()}. ` + curr.map(c => `${c} (${trans.get(c)})`).join(", ");
 }
 
 export default {
